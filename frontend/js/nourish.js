@@ -1,4 +1,4 @@
-const API = 'http://localhost:3000/api';
+const API = 'https://nourish-backend-t4w4.onrender.com/api';
 let allRecipes = [];
 let currentCategory = 'All';
 let openRecipe = null;
