@@ -6,7 +6,7 @@
 <title>Nourish — Recipe Gallery</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="stylesheet" href="../css/nourish.css">
+<link rel="stylesheet" href="css/nourish.css">
 </head>
 <body>
 
@@ -15,22 +15,21 @@
     <a class="logo" href="index.html">Nour<span>ish</span></a>
     <div class="search-wrap">
       <i class="fa-solid fa-magnifying-glass search-icon"></i>
-      <input type="text" id="searchInput" placeholder="Search recipes…"
-        oninput="filterRecipes()">
+      <input type="text" id="searchInput" placeholder="Search recipes…" oninput="filterRecipes()">
     </div>
     <div class="header-actions">
       <button class="btn btn-primary" onclick="openAddModal()">
-        <i class="fa-solid fa-plus"></i> Add Recipe
+        <i class="fa-solid fa-plus"></i><span class="btn-text"> Add Recipe</span>
       </button>
       <button class="btn btn-outline" onclick="showFavorites()">
-        <i class="fa-regular fa-heart"></i> Favorites
+        <i class="fa-regular fa-heart"></i><span class="btn-text"> Favorites</span>
       </button>
       <button class="btn btn-outline" onclick="openGrocery()">
-        <i class="fa-solid fa-basket-shopping"></i> Grocery
+        <i class="fa-solid fa-basket-shopping"></i><span class="btn-text"> Grocery</span>
       </button>
       <div class="user-menu-wrap" id="userMenuWrap">
         <button class="btn btn-outline" id="nav-auth" onclick="openAuthModal()">
-          <i class="fa-regular fa-user"></i> Login
+          <i class="fa-regular fa-user"></i><span class="btn-text"> Login</span>
         </button>
       </div>
     </div>
@@ -49,7 +48,6 @@
 </nav>
 
 <main>
-  <!-- GALLERY PAGE -->
   <div id="galleryPage">
     <div class="hero-strip">
       <div class="hero-text">
@@ -57,21 +55,11 @@
         <p>Discover wholesome recipes crafted for every taste and every meal.</p>
       </div>
       <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-num" id="totalCount">0</div>
-          <div class="stat-lbl">Recipes</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num" id="favCount">0</div>
-          <div class="stat-lbl">Favorites</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num" id="cuisineCount">0</div>
-          <div class="stat-lbl">Cuisines</div>
-        </div>
+        <div class="stat"><div class="stat-num" id="totalCount">0</div><div class="stat-lbl">Recipes</div></div>
+        <div class="stat"><div class="stat-num" id="favCount">0</div><div class="stat-lbl">Favorites</div></div>
+        <div class="stat"><div class="stat-num" id="cuisineCount">0</div><div class="stat-lbl">Cuisines</div></div>
       </div>
     </div>
-
     <div class="section-header">
       <h2 class="section-title" id="sectionTitle">All Recipes</h2>
       <div class="filter-selects">
@@ -93,22 +81,18 @@
         </select>
       </div>
     </div>
-
     <div class="recipe-grid" id="recipeGrid">
       <div class="empty-state">
-        <i class="fa-solid fa-spinner fa-spin"
-          style="font-size:2rem;margin-bottom:1rem;color:var(--sage)"></i>
+        <i class="fa-solid fa-spinner fa-spin" style="font-size:2rem;margin-bottom:1rem;color:var(--sage)"></i>
         <p>Loading recipes...</p>
       </div>
     </div>
   </div>
 
-  <!-- FAVORITES PAGE -->
   <div id="favoritesPage" style="display:none">
     <div class="section-header">
       <h2 class="section-title">
-        <i class="fa-solid fa-heart" style="color:var(--terracotta)"></i>
-        Your Favorites
+        <i class="fa-solid fa-heart" style="color:var(--terracotta)"></i> Your Favorites
       </h2>
       <button class="btn btn-outline" onclick="showGallery()">
         <i class="fa-solid fa-arrow-left"></i> Back
@@ -117,30 +101,21 @@
     <div class="recipe-grid" id="favGrid"></div>
   </div>
 
-  <!-- PROFILE PAGE -->
   <div id="profilePage" style="display:none">
     <div class="profile-container">
       <div class="profile-header-card">
-
-        <!-- AVATAR WITH HOVER OVERLAY -->
         <div class="profile-avatar-wrap">
           <div class="profile-avatar" id="profileAvatarDisplay">U</div>
           <div class="avatar-overlay">
-            <button class="avatar-overlay-btn"
-              onclick="document.getElementById('avatarInput').click()">
+            <button class="avatar-overlay-btn" onclick="document.getElementById('avatarInput').click()">
               <i class="fa-solid fa-camera"></i> Change
             </button>
-            <button class="avatar-overlay-btn avatar-overlay-remove"
-              id="removeAvatarBtn"
-              onclick="removeAvatar()"
-              style="display:none">
+            <button class="avatar-overlay-btn avatar-overlay-remove" id="removeAvatarBtn" onclick="removeAvatar()" style="display:none">
               <i class="fa-solid fa-trash"></i> Remove
             </button>
           </div>
-          <input type="file" id="avatarInput" accept="image/*"
-            style="display:none" onchange="changeAvatar(event)">
+          <input type="file" id="avatarInput" accept="image/*" style="display:none" onchange="changeAvatar(event)">
         </div>
-
         <div class="profile-info">
           <div class="profile-name-row">
             <h2 class="profile-name" id="profileName">User</h2>
@@ -164,48 +139,32 @@
             </div>
           </div>
         </div>
-        <button class="btn btn-outline"
-          onclick="showGallery()"
-          style="margin-left:auto;align-self:flex-start">
+        <button class="btn btn-outline" onclick="showGallery()" style="margin-left:auto;align-self:flex-start">
           <i class="fa-solid fa-arrow-left"></i> Back
         </button>
       </div>
-
       <div class="profile-tabs">
-        <button class="profile-tab active"
-          onclick="switchProfileTab('myRecipes', this)">
+        <button class="profile-tab active" onclick="switchProfileTab('myRecipes', this)">
           <i class="fa-solid fa-bowl-food"></i> My Recipes
         </button>
-        <button class="profile-tab"
-          onclick="switchProfileTab('myReviews', this)">
+        <button class="profile-tab" onclick="switchProfileTab('myReviews', this)">
           <i class="fa-regular fa-star"></i> My Reviews
         </button>
-        <button class="profile-tab"
-          onclick="switchProfileTab('myFavorites', this)">
+        <button class="profile-tab" onclick="switchProfileTab('myFavorites', this)">
           <i class="fa-regular fa-heart"></i> My Favorites
         </button>
       </div>
-
-      <div id="tab-myRecipes">
-        <div class="recipe-grid" id="myRecipesGrid"></div>
-      </div>
-      <div id="tab-myReviews" style="display:none">
-        <div id="myReviewsList" class="reviews-list-page"></div>
-      </div>
-      <div id="tab-myFavorites" style="display:none">
-        <div class="recipe-grid" id="myFavoritesGrid"></div>
-      </div>
+      <div id="tab-myRecipes"><div class="recipe-grid" id="myRecipesGrid"></div></div>
+      <div id="tab-myReviews" style="display:none"><div id="myReviewsList" class="reviews-list-page"></div></div>
+      <div id="tab-myFavorites" style="display:none"><div class="recipe-grid" id="myFavoritesGrid"></div></div>
     </div>
   </div>
 </main>
 
-<!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <a class="logo" href="index.html" style="font-size:1.4rem">
-        Nour<span>ish</span>
-      </a>
+      <a class="logo" href="index.html" style="font-size:1.4rem">Nour<span>ish</span></a>
       <p>Wholesome recipes for every taste and every meal. Cook with love, eat with joy.</p>
       <div class="footer-social">
         <a href="#"><i class="fa-brands fa-instagram"></i></a>
@@ -216,59 +175,29 @@
     </div>
     <div class="footer-links">
       <h4>Explore</h4>
-      <a href="#" onclick="setCategory('Breakfast', null);showGallery()">
-        <i class="fa-solid fa-sun"></i> Breakfast
-      </a>
-      <a href="#" onclick="setCategory('Lunch', null);showGallery()">
-        <i class="fa-solid fa-leaf"></i> Lunch
-      </a>
-      <a href="#" onclick="setCategory('Dinner', null);showGallery()">
-        <i class="fa-solid fa-utensils"></i> Dinner
-      </a>
-      <a href="#" onclick="setCategory('Dessert', null);showGallery()">
-        <i class="fa-solid fa-cake-candles"></i> Dessert
-      </a>
-      <a href="#" onclick="setCategory('Snack', null);showGallery()">
-        <i class="fa-solid fa-apple-whole"></i> Snacks
-      </a>
+      <a href="#" onclick="setCategory('Breakfast',null);showGallery()"><i class="fa-solid fa-sun"></i> Breakfast</a>
+      <a href="#" onclick="setCategory('Lunch',null);showGallery()"><i class="fa-solid fa-leaf"></i> Lunch</a>
+      <a href="#" onclick="setCategory('Dinner',null);showGallery()"><i class="fa-solid fa-utensils"></i> Dinner</a>
+      <a href="#" onclick="setCategory('Dessert',null);showGallery()"><i class="fa-solid fa-cake-candles"></i> Dessert</a>
+      <a href="#" onclick="setCategory('Snack',null);showGallery()"><i class="fa-solid fa-apple-whole"></i> Snacks</a>
     </div>
     <div class="footer-links">
       <h4>Account</h4>
-      <a href="#" onclick="openAuthModal()">
-        <i class="fa-regular fa-user"></i> Login
-      </a>
-      <a href="#" onclick="openAddModal()">
-        <i class="fa-solid fa-plus"></i> Add Recipe
-      </a>
-      <a href="#" onclick="showFavorites()">
-        <i class="fa-regular fa-heart"></i> My Favorites
-      </a>
-      <a href="#" onclick="openGrocery()">
-        <i class="fa-solid fa-basket-shopping"></i> Grocery List
-      </a>
+      <a href="#" onclick="openAuthModal()"><i class="fa-regular fa-user"></i> Login</a>
+      <a href="#" onclick="openAddModal()"><i class="fa-solid fa-plus"></i> Add Recipe</a>
+      <a href="#" onclick="showFavorites()"><i class="fa-regular fa-heart"></i> My Favorites</a>
+      <a href="#" onclick="openGrocery()"><i class="fa-solid fa-basket-shopping"></i> Grocery List</a>
     </div>
     <div class="footer-links">
       <h4>About</h4>
-      <a href="about.html">
-        <i class="fa-solid fa-circle-info"></i> About Nourish
-      </a>
-      <a href="contact.html">
-        <i class="fa-solid fa-envelope"></i> Contact Us
-      </a>
-      <a href="privacy.html">
-        <i class="fa-solid fa-shield-halved"></i> Privacy Policy
-      </a>
-      <a href="terms.html">
-        <i class="fa-solid fa-file-lines"></i> Terms of Use
-      </a>
+      <a href="pages/about.html"><i class="fa-solid fa-circle-info"></i> About Nourish</a>
+      <a href="pages/contact.html"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+      <a href="pages/privacy.html"><i class="fa-solid fa-shield-halved"></i> Privacy Policy</a>
+      <a href="pages/terms.html"><i class="fa-solid fa-file-lines"></i> Terms of Use</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>
-      &copy; 2025 Nourish Recipe Gallery. Made with
-      <i class="fa-solid fa-heart" style="color:var(--terracotta)"></i>
-      for food lovers everywhere.
-    </p>
+    <p>&copy; 2025 Nourish Recipe Gallery. Made with <i class="fa-solid fa-heart" style="color:var(--terracotta)"></i> for food lovers everywhere.</p>
   </div>
 </footer>
 
@@ -276,71 +205,47 @@
 <div class="overlay" id="detailOverlay" onclick="closeDetailOutside(event)">
   <div class="modal">
     <div class="modal-header">
-      <div class="modal-hero">
-        <img id="modalImg" src="" alt="Recipe">
-      </div>
-      <button class="modal-close" onclick="closeDetailModal()">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
+      <div class="modal-hero"><img id="modalImg" src="" alt="Recipe"></div>
+      <button class="modal-close" onclick="closeDetailModal()"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <div class="modal-body">
-      <div style="display:flex;align-items:flex-start;
-                  justify-content:space-between;
-                  gap:1rem;margin-bottom:0.5rem;">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:0.5rem;">
         <h2 class="modal-title" id="modalTitle"></h2>
         <button class="fav-btn" id="modalFavBtn"
-          style="position:static;box-shadow:none;
-                 border:1.5px solid var(--border);
-                 width:40px;height:40px;font-size:1.1rem;"
+          style="position:static;box-shadow:none;border:1.5px solid var(--border);width:40px;height:40px;font-size:1.1rem;"
           onclick="toggleFavModal()">
           <i class="fa-regular fa-heart"></i>
         </button>
       </div>
       <div class="modal-meta" id="modalMeta"></div>
-
       <div class="recipe-tabs">
-        <button class="recipe-tab active"
-          onclick="switchRecipeTab('ingredients', this)">
+        <button class="recipe-tab active" onclick="switchRecipeTab('ingredients', this)">
           <i class="fa-solid fa-list-ul"></i> Ingredients
         </button>
-        <button class="recipe-tab"
-          onclick="switchRecipeTab('instructions', this)">
+        <button class="recipe-tab" onclick="switchRecipeTab('instructions', this)">
           <i class="fa-solid fa-clipboard-list"></i> Instructions
         </button>
-        <button class="recipe-tab"
-          onclick="switchRecipeTab('reviews', this)">
+        <button class="recipe-tab" onclick="switchRecipeTab('reviews', this)">
           <i class="fa-regular fa-star"></i> Reviews
         </button>
       </div>
-
       <div class="recipe-panel" id="panel-ingredients">
         <div class="servings-control">
           <span>Servings:</span>
-          <button class="serv-btn" onclick="changeServings(-1)">
-            <i class="fa-solid fa-minus"></i>
-          </button>
+          <button class="serv-btn" onclick="changeServings(-1)"><i class="fa-solid fa-minus"></i></button>
           <span class="serv-count" id="servingCount">2</span>
-          <button class="serv-btn" onclick="changeServings(1)">
-            <i class="fa-solid fa-plus"></i>
-          </button>
-          <span style="font-size:0.8rem;color:var(--light)">
-            (scales ingredients)
-          </span>
+          <button class="serv-btn" onclick="changeServings(1)"><i class="fa-solid fa-plus"></i></button>
+          <span style="font-size:0.8rem;color:var(--light)">(scales ingredients)</span>
         </div>
         <ul class="ingredients-list" id="modalIngredients"></ul>
       </div>
-
       <div class="recipe-panel" id="panel-instructions" style="display:none">
         <ol class="steps-list" id="modalSteps"></ol>
       </div>
-
       <div class="recipe-panel" id="panel-reviews" style="display:none">
         <div id="modalReviews"></div>
         <div id="reviewFormWrap" style="display:none;margin-top:1.2rem;">
-          <p style="font-size:0.88rem;font-weight:600;
-                     color:var(--mid);margin-bottom:8px;">
-            Leave a review:
-          </p>
+          <p style="font-size:0.88rem;font-weight:600;color:var(--mid);margin-bottom:8px;">Leave a review:</p>
           <div class="star-select" id="starSelect">
             <span onclick="setRating(1)"><i class="fa-solid fa-star"></i></span>
             <span onclick="setRating(2)"><i class="fa-solid fa-star"></i></span>
@@ -349,24 +254,16 @@
             <span onclick="setRating(5)"><i class="fa-solid fa-star"></i></span>
           </div>
           <div class="review-form">
-            <textarea id="reviewText" rows="2"
-              placeholder="Share your experience..."></textarea>
-            <button class="btn btn-primary" style="width:100%"
-              onclick="submitReview()">Submit Review</button>
+            <textarea id="reviewText" rows="2" placeholder="Share your experience..."></textarea>
+            <button class="btn btn-primary" style="width:100%" onclick="submitReview()">Submit Review</button>
           </div>
         </div>
-        <p id="loginToReview"
-          style="font-size:0.85rem;color:var(--light);margin-top:1rem;">
-          <span onclick="openAuthModal()"
-            style="color:var(--sage-dark);cursor:pointer;
-                   text-decoration:underline">Login</span>
-          to leave a review
+        <p id="loginToReview" style="font-size:0.85rem;color:var(--light);margin-top:1rem;">
+          <span onclick="openAuthModal()" style="color:var(--sage-dark);cursor:pointer;text-decoration:underline">Login</span> to leave a review
         </p>
       </div>
-
       <button class="btn btn-terracotta grocery-btn" onclick="addToGrocery()">
-        <i class="fa-solid fa-basket-shopping"></i>
-        Add Ingredients to Grocery List
+        <i class="fa-solid fa-basket-shopping"></i> Add Ingredients to Grocery List
       </button>
     </div>
   </div>
@@ -376,9 +273,7 @@
 <div class="timer-widget" id="timerWidget" style="display:none">
   <div class="timer-widget-header">
     <span><i class="fa-regular fa-clock"></i> Active Timers</span>
-    <button onclick="closeTimerWidget()">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
+    <button onclick="closeTimerWidget()"><i class="fa-solid fa-xmark"></i></button>
   </div>
   <div class="timer-widget-body" id="timerWidgetBody"></div>
 </div>
@@ -386,69 +281,32 @@
 <!-- AUTH MODAL -->
 <div class="overlay" id="authOverlay" onclick="closeAuthOutside(event)">
   <div class="modal" style="max-width:420px">
-    <div style="padding:1.8rem 2rem 0;display:flex;align-items:center;
-                justify-content:space-between;">
-      <h2 style="font-family:'Fraunces',serif;font-size:1.5rem;
-                  font-weight:700;" id="authModalTitle">Welcome back</h2>
-      <button class="modal-close"
-        style="position:static;box-shadow:none;
-               border:1.5px solid var(--border);"
-        onclick="closeAuthModal()">
+    <div style="padding:1.8rem 2rem 0;display:flex;align-items:center;justify-content:space-between;">
+      <h2 style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;" id="authModalTitle">Welcome back</h2>
+      <button class="modal-close" style="position:static;box-shadow:none;border:1.5px solid var(--border);" onclick="closeAuthModal()">
         <i class="fa-solid fa-xmark"></i>
       </button>
     </div>
     <div class="modal-body" style="padding-top:1.2rem;">
       <div id="loginForm">
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" id="login-email" placeholder="your@email.com">
-        </div>
-        <div class="form-group">
-          <label>Password</label>
-          <input type="password" id="login-password" placeholder="••••••">
-        </div>
-        <button class="btn btn-primary"
-          style="width:100%;margin-top:0.5rem;justify-content:center"
-          onclick="loginUser()">
+        <div class="form-group"><label>Email</label><input type="email" id="login-email" placeholder="your@email.com"></div>
+        <div class="form-group"><label>Password</label><input type="password" id="login-password" placeholder="••••••"></div>
+        <button class="btn btn-primary" style="width:100%;margin-top:0.5rem;justify-content:center" onclick="loginUser()">
           <i class="fa-solid fa-right-to-bracket"></i> Login
         </button>
-        <p style="text-align:center;margin-top:1.2rem;
-                   font-size:0.88rem;color:var(--light)">
-          New here?
-          <span onclick="showRegisterForm()"
-            style="color:var(--sage-dark);cursor:pointer;
-                   font-weight:600;text-decoration:underline">
-            Create an account
-          </span>
+        <p style="text-align:center;margin-top:1.2rem;font-size:0.88rem;color:var(--light)">
+          New here? <span onclick="showRegisterForm()" style="color:var(--sage-dark);cursor:pointer;font-weight:600;text-decoration:underline">Create an account</span>
         </p>
       </div>
       <div id="registerForm" style="display:none">
-        <div class="form-group">
-          <label>Username</label>
-          <input type="text" id="reg-username" placeholder="your name">
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" id="reg-email" placeholder="your@email.com">
-        </div>
-        <div class="form-group">
-          <label>Password</label>
-          <input type="password" id="reg-password"
-            placeholder="min 6 characters">
-        </div>
-        <button class="btn btn-primary"
-          style="width:100%;margin-top:0.5rem;justify-content:center"
-          onclick="registerUser()">
+        <div class="form-group"><label>Username</label><input type="text" id="reg-username" placeholder="your name"></div>
+        <div class="form-group"><label>Email</label><input type="email" id="reg-email" placeholder="your@email.com"></div>
+        <div class="form-group"><label>Password</label><input type="password" id="reg-password" placeholder="min 6 characters"></div>
+        <button class="btn btn-primary" style="width:100%;margin-top:0.5rem;justify-content:center" onclick="registerUser()">
           <i class="fa-solid fa-user-plus"></i> Create Account
         </button>
-        <p style="text-align:center;margin-top:1.2rem;
-                   font-size:0.88rem;color:var(--light)">
-          Already have an account?
-          <span onclick="showLoginForm()"
-            style="color:var(--sage-dark);cursor:pointer;
-                   font-weight:600;text-decoration:underline">
-            Sign in
-          </span>
+        <p style="text-align:center;margin-top:1.2rem;font-size:0.88rem;color:var(--light)">
+          Already have an account? <span onclick="showLoginForm()" style="color:var(--sage-dark);cursor:pointer;font-weight:600;text-decoration:underline">Sign in</span>
         </p>
       </div>
     </div>
@@ -456,36 +314,20 @@
 </div>
 
 <!-- EDIT PROFILE MODAL -->
-<div class="overlay" id="editProfileOverlay"
-  onclick="closeEditProfileOutside(event)">
+<div class="overlay" id="editProfileOverlay" onclick="closeEditProfileOutside(event)">
   <div class="modal" style="max-width:440px">
-    <div style="padding:1.8rem 2rem 0;display:flex;align-items:center;
-                justify-content:space-between;">
-      <h2 style="font-family:'Fraunces',serif;font-size:1.4rem;
-                  font-weight:700;">Edit Profile</h2>
-      <button class="modal-close"
-        style="position:static;box-shadow:none;
-               border:1.5px solid var(--border);"
-        onclick="closeEditProfile()">
+    <div style="padding:1.8rem 2rem 0;display:flex;align-items:center;justify-content:space-between;">
+      <h2 style="font-family:'Fraunces',serif;font-size:1.4rem;font-weight:700;">Edit Profile</h2>
+      <button class="modal-close" style="position:static;box-shadow:none;border:1.5px solid var(--border);" onclick="closeEditProfile()">
         <i class="fa-solid fa-xmark"></i>
       </button>
     </div>
     <div class="modal-body" style="padding-top:1.2rem;">
-      <div class="form-group">
-        <label>Username</label>
-        <input type="text" id="edit-username" placeholder="your name">
-      </div>
-      <div class="form-group">
-        <label>Bio</label>
-        <textarea id="edit-bio" rows="3"
-          placeholder="Tell us about yourself..."></textarea>
-      </div>
+      <div class="form-group"><label>Username</label><input type="text" id="edit-username" placeholder="your name"></div>
+      <div class="form-group"><label>Bio</label><textarea id="edit-bio" rows="3" placeholder="Tell us about yourself..."></textarea></div>
       <div style="display:flex;gap:0.8rem;margin-top:0.5rem;">
-        <button class="btn btn-outline" style="flex:1"
-          onclick="closeEditProfile()">Cancel</button>
-        <button class="btn btn-primary"
-          style="flex:2;justify-content:center"
-          onclick="saveProfile()">
+        <button class="btn btn-outline" style="flex:1" onclick="closeEditProfile()">Cancel</button>
+        <button class="btn btn-primary" style="flex:2;justify-content:center" onclick="saveProfile()">
           <i class="fa-solid fa-check"></i> Save Changes
         </button>
       </div>
@@ -496,105 +338,59 @@
 <!-- ADD RECIPE MODAL -->
 <div class="overlay" id="addOverlay" onclick="closeAddOutside(event)">
   <div class="modal" style="max-width:620px">
-    <div style="padding:1.8rem 2rem 0;display:flex;align-items:center;
-                justify-content:space-between;">
-      <h2 style="font-family:'Fraunces',serif;font-size:1.5rem;
-                  font-weight:700;">Add New Recipe</h2>
-      <button class="modal-close"
-        style="position:static;box-shadow:none;
-               border:1.5px solid var(--border);"
-        onclick="closeAddModal()">
+    <div style="padding:1.8rem 2rem 0;display:flex;align-items:center;justify-content:space-between;">
+      <h2 style="font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;">Add New Recipe</h2>
+      <button class="modal-close" style="position:static;box-shadow:none;border:1.5px solid var(--border);" onclick="closeAddModal()">
         <i class="fa-solid fa-xmark"></i>
       </button>
     </div>
     <div class="modal-body" style="padding-top:1.2rem;">
       <div class="form-grid">
-        <div class="form-group form-full">
-          <label>Recipe Name</label>
-          <input type="text" id="f_name" placeholder="e.g. Butter Chicken">
-        </div>
+        <div class="form-group form-full"><label>Recipe Name</label><input type="text" id="f_name" placeholder="e.g. Butter Chicken"></div>
         <div class="form-group form-full">
           <label>Recipe Photo</label>
-          <div class="img-upload-wrap"
-            onclick="document.getElementById('recipeImgInput').click()">
-            <img id="imgPreview" src="" alt="preview"
-              style="display:none;width:100%;height:160px;
-                     object-fit:cover;border-radius:10px;
-                     margin-bottom:0.5rem">
-            <div id="imgLabel" class="img-upload-label">
-              <i class="fa-solid fa-camera"></i> Add Photo
-            </div>
+          <div class="img-upload-wrap" onclick="document.getElementById('recipeImgInput').click()">
+            <img id="imgPreview" src="" alt="preview" style="display:none;width:100%;height:160px;object-fit:cover;border-radius:10px;margin-bottom:0.5rem">
+            <div id="imgLabel" class="img-upload-label"><i class="fa-solid fa-camera"></i> Add Photo</div>
           </div>
-          <input type="file" id="recipeImgInput" accept="image/*"
-            style="display:none" onchange="handleRecipeImage(event)">
+          <input type="file" id="recipeImgInput" accept="image/*" style="display:none" onchange="handleRecipeImage(event)">
         </div>
-        <div class="form-group">
-          <label>Cuisine</label>
+        <div class="form-group"><label>Cuisine</label>
           <select id="f_cuisine">
-            <option value="Indian">Indian</option>
-            <option value="Italian">Italian</option>
-            <option value="Mexican">Mexican</option>
-            <option value="Chinese">Chinese</option>
-            <option value="Japanese">Japanese</option>
-            <option value="American">American</option>
+            <option value="Indian">Indian</option><option value="Italian">Italian</option>
+            <option value="Mexican">Mexican</option><option value="Chinese">Chinese</option>
+            <option value="Japanese">Japanese</option><option value="American">American</option>
             <option value="Mediterranean">Mediterranean</option>
           </select>
         </div>
-        <div class="form-group">
-          <label>Category</label>
+        <div class="form-group"><label>Category</label>
           <select id="f_cat">
-            <option value="Breakfast">Breakfast</option>
-            <option value="Lunch">Lunch</option>
-            <option value="Dinner">Dinner</option>
-            <option value="Snack">Snack</option>
+            <option value="Breakfast">Breakfast</option><option value="Lunch">Lunch</option>
+            <option value="Dinner">Dinner</option><option value="Snack">Snack</option>
             <option value="Dessert">Dessert</option>
           </select>
         </div>
-        <div class="form-group">
-          <label>Prep Time (mins)</label>
-          <input type="number" id="f_prep" placeholder="e.g. 20" min="0">
-        </div>
-        <div class="form-group">
-          <label>Cook Time (mins)</label>
-          <input type="number" id="f_cook" placeholder="e.g. 30" min="0">
-        </div>
-        <div class="form-group">
-          <label>Servings</label>
-          <input type="number" id="f_servings" placeholder="e.g. 4" min="1">
-        </div>
-        <div class="form-group">
-          <label>Difficulty</label>
+        <div class="form-group"><label>Prep Time (mins)</label><input type="number" id="f_prep" placeholder="e.g. 20" min="0"></div>
+        <div class="form-group"><label>Cook Time (mins)</label><input type="number" id="f_cook" placeholder="e.g. 30" min="0"></div>
+        <div class="form-group"><label>Servings</label><input type="number" id="f_servings" placeholder="e.g. 4" min="1"></div>
+        <div class="form-group"><label>Difficulty</label>
           <select id="f_difficulty">
-            <option value="Easy">Easy</option>
-            <option value="Medium">Medium</option>
-            <option value="Hard">Hard</option>
+            <option value="Easy">Easy</option><option value="Medium">Medium</option><option value="Hard">Hard</option>
           </select>
         </div>
-        <div class="form-group form-full">
-          <label>Description</label>
-          <textarea id="f_desc" rows="2"
-            placeholder="Brief description..."></textarea>
-        </div>
+        <div class="form-group form-full"><label>Description</label><textarea id="f_desc" rows="2" placeholder="Brief description..."></textarea></div>
         <div class="form-group form-full">
           <label>Ingredients — format: "name|quantity" one per line</label>
-          <textarea id="f_ingredients" rows="5"
-            placeholder="Chicken|500g&#10;Butter|3 tbsp&#10;Tomato puree|200ml">
-          </textarea>
+          <textarea id="f_ingredients" rows="5" placeholder="Chicken|500g&#10;Butter|3 tbsp&#10;Tomato puree|200ml"></textarea>
         </div>
         <div class="form-group form-full">
-          <label>Instructions — one step per line,
-            add "|timer_mins" for timed steps</label>
-          <textarea id="f_steps" rows="5"
-            placeholder="Marinate chicken|30&#10;Cook in butter|10&#10;Add sauce and simmer|15">
-          </textarea>
+          <label>Instructions — one step per line, add "|timer_mins" for timed steps</label>
+          <textarea id="f_steps" rows="5" placeholder="Marinate chicken|30&#10;Cook in butter|10&#10;Add sauce and simmer|15"></textarea>
         </div>
       </div>
       <div style="display:flex;gap:0.8rem;margin-top:1.4rem;">
-        <button class="btn btn-outline" style="flex:1"
-          onclick="closeAddModal()">Cancel</button>
-        <button class="btn btn-primary"
-          style="flex:2;justify-content:center"
-          onclick="submitRecipe()">
+        <button class="btn btn-outline" style="flex:1" onclick="closeAddModal()">Cancel</button>
+        <button class="btn btn-primary" style="flex:2;justify-content:center" onclick="submitRecipe()">
           <i class="fa-solid fa-check"></i> Add Recipe
         </button>
       </div>
@@ -603,27 +399,23 @@
 </div>
 
 <!-- GROCERY PANEL -->
-<div class="grocery-backdrop" id="groceryBackdrop"
-  onclick="closeGrocery()"></div>
+<div class="grocery-backdrop" id="groceryBackdrop" onclick="closeGrocery()"></div>
 <div class="grocery-panel" id="groceryPanel">
   <div class="grocery-header">
     <h2><i class="fa-solid fa-basket-shopping"></i> Grocery List</h2>
-    <button class="btn btn-outline"
-      style="padding:0.4rem 0.8rem;font-size:0.8rem;"
-      onclick="closeGrocery()">
+    <button class="btn btn-outline" style="padding:0.4rem 0.8rem;font-size:0.8rem;" onclick="closeGrocery()">
       <i class="fa-solid fa-xmark"></i>
     </button>
   </div>
   <div class="grocery-body" id="groceryBody"></div>
   <div class="grocery-footer">
-    <button class="btn btn-outline" style="width:100%;"
-      onclick="clearGrocery()">
+    <button class="btn btn-outline" style="width:100%;" onclick="clearGrocery()">
       <i class="fa-solid fa-trash"></i> Clear List
     </button>
   </div>
 </div>
 
 <div class="toast" id="toast"></div>
-<script src="../js/nourish.js"></script>
+<script src="js/nourish.js"></script>
 </body>
 </html>

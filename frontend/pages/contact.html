@@ -13,9 +13,9 @@
 
 <header>
   <div class="header-inner">
-    <a class="logo" href="index.html">Nour<span>ish</span></a>
+    <a class="logo" href="../index.html">Nour<span>ish</span></a>
     <div class="header-actions">
-      <a href="index.html" class="btn btn-outline">
+      <a href="../index.html" class="btn btn-outline">
         <i class="fa-solid fa-arrow-left"></i> Back to Recipes
       </a>
     </div>
@@ -24,7 +24,6 @@
 
 <main class="static-main">
 
-  <!-- HERO -->
   <div class="static-hero">
     <div class="static-hero-inner">
       <p class="static-hero-tag">Get in Touch</p>
@@ -39,7 +38,6 @@
   <section class="static-section">
     <div class="static-section-inner contact-layout">
 
-      <!-- LEFT — CONTACT INFO -->
       <div class="contact-info">
         <h2>Contact Info</h2>
         <p style="color:var(--mid);margin-bottom:2rem;line-height:1.7">
@@ -48,19 +46,15 @@
         </p>
 
         <div class="contact-item">
-          <div class="contact-icon">
-            <i class="fa-solid fa-envelope"></i>
-          </div>
+          <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
           <div>
             <h4>Email Us</h4>
-            <a href="mailto:hello@nourish.app">hello@nourish.app</a>
+            <p style="color:var(--sage-dark);font-weight:500">hello&#64;nourish.app</p>
           </div>
         </div>
 
         <div class="contact-item">
-          <div class="contact-icon">
-            <i class="fa-solid fa-clock"></i>
-          </div>
+          <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
           <div>
             <h4>Response Time</h4>
             <p>We typically reply within 24–48 hours.</p>
@@ -68,43 +62,27 @@
         </div>
 
         <div class="contact-item">
-          <div class="contact-icon">
-            <i class="fa-solid fa-location-dot"></i>
-          </div>
+          <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
           <div>
             <h4>Based in</h4>
             <p>India <i class="fa-solid fa-flag" style="color:var(--terracotta)"></i></p>
           </div>
         </div>
 
-        <!-- SOCIAL LINKS -->
         <div class="contact-socials">
           <h4>Follow Us</h4>
           <div class="social-links">
-            <a href="#" class="social-link">
-              <i class="fa-brands fa-instagram"></i>
-              <span>Instagram</span>
-            </a>
-            <a href="#" class="social-link">
-              <i class="fa-brands fa-pinterest"></i>
-              <span>Pinterest</span>
-            </a>
-            <a href="#" class="social-link">
-              <i class="fa-brands fa-youtube"></i>
-              <span>YouTube</span>
-            </a>
-            <a href="#" class="social-link">
-              <i class="fa-brands fa-facebook"></i>
-              <span>Facebook</span>
-            </a>
+            <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-pinterest"></i><span>Pinterest</span></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-youtube"></i><span>YouTube</span></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i><span>Facebook</span></a>
           </div>
         </div>
       </div>
 
-      <!-- RIGHT — CONTACT FORM -->
       <div class="contact-form-wrap">
         <h2>Send a Message</h2>
-        <form class="contact-form" onsubmit="submitContact(event)">
+        <form class="contact-form" id="contactForm" onsubmit="submitContact(event)">
           <div class="form-group">
             <label>Your Name</label>
             <input type="text" id="c-name" placeholder="e.g. Kajal Rai" required>
@@ -126,8 +104,7 @@
           </div>
           <div class="form-group">
             <label>Message</label>
-            <textarea id="c-message" rows="5"
-              placeholder="Tell us what's on your mind..." required></textarea>
+            <textarea id="c-message" rows="5" placeholder="Tell us what's on your mind..." required></textarea>
           </div>
           <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center">
             <i class="fa-solid fa-paper-plane"></i> Send Message
@@ -138,9 +115,7 @@
           <i class="fa-solid fa-circle-check"></i>
           <h3>Message Sent!</h3>
           <p>Thanks for reaching out. We'll get back to you within 24–48 hours.</p>
-          <button class="btn btn-outline" onclick="resetContactForm()">
-            Send Another
-          </button>
+          <button class="btn btn-outline" onclick="resetContactForm()">Send Another</button>
         </div>
       </div>
 
@@ -162,7 +137,7 @@
 <script>
 function submitContact(e) {
   e.preventDefault();
-  document.querySelector('.contact-form').style.display = 'none';
+  document.getElementById('contactForm').style.display = 'none';
   document.getElementById('contactSuccess').style.display = 'flex';
 }
 
@@ -170,7 +145,7 @@ function resetContactForm() {
   document.getElementById('c-name').value = '';
   document.getElementById('c-email').value = '';
   document.getElementById('c-message').value = '';
-  document.querySelector('.contact-form').style.display = 'block';
+  document.getElementById('contactForm').style.display = 'block';
   document.getElementById('contactSuccess').style.display = 'none';
 }
 </script>
